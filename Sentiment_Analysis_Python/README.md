@@ -1,73 +1,150 @@
-# Twitter Sentiment Analysis
-## Overview
+# Twitter Sentiment Analysis Using Machine Learning
 
-This project performs sentiment analysis on Twitter data using Natural Language Processing (NLP) and Machine Learning techniques.
-The project uses the Sentiment140 dataset and classifies tweets into positive and negative sentiments.
+## 📌 Project Overview
 
-## Objective
+This project performs sentiment analysis on Twitter data using Machine Learning.
 
-The main objective of this project is to build a machine learning model that can analyze the sentiment expressed in a tweet.
-The project covers:
+The objective is to classify tweets into two sentiment categories:
 
-- Twitter text preprocessing
-- Stopword removal
-- Stemming
-- TF-IDF feature extraction
-- Machine learning model training
-- Model evaluation
-- Sentiment prediction for new tweets
+- **0 → Negative**
+- **1 → Positive**
 
-## Dataset
+The project follows a complete Machine Learning workflow including data preprocessing, text feature extraction, model training, evaluation, comparison, and model saving.
 
-The project uses the **Sentiment140 dataset**, which contains 1.6 million tweets.
-The target labels are converted into two sentiment classes:
+---
+
+## 🎯 Problem Statement
+
+Social media platforms contain a large amount of textual data expressing people's opinions and emotions.
+
+Manually analyzing millions of tweets is difficult and time-consuming. This project uses Machine Learning and Natural Language Processing techniques to automatically classify tweets based on their sentiment.
+
+---
+
+## 📊 Dataset
+
+The dataset contains **1,600,000 labeled tweets**.
+
+The original target labels were converted into binary sentiment classes:
 
 - `0` → Negative
-- `1` → Positive
+- `4` → Positive
 
-## Technologies Used
+The positive label `4` was mapped to `1` for binary classification.
+
+### Class Distribution
+
+| Sentiment | Number of Tweets |
+|-----------|------------------:|
+| Negative (0) | 800,000 |
+| Positive (1) | 800,000 |
+| **Total** | **1,600,000** |
+
+The dataset is therefore balanced between the two sentiment classes.
+
+---
+
+## 🛠️ Technologies Used
 
 - Python
-- NumPy
 - Pandas
-- NLTK
+- NumPy
 - Scikit-learn
-- Kaggle API
+- Natural Language Processing (NLP)
 - Jupyter Notebook
+- Pickle
 
-## NLP Preprocessing
+---
 
-The tweet text is processed using the following steps:
+## 🔄 Project Workflow
 
-1. Remove non-alphabetic characters.
-2. Convert text to lowercase.
-3. Split text into individual words.
-4. Remove English stopwords.
-5. Apply Porter Stemming.
+The project follows these major steps:
 
-## Feature Extraction
+1. Load the Twitter dataset
+2. Explore the dataset
+3. Analyze the target distribution
+4. Convert sentiment labels into binary classes
+5. Preprocess the text data
+6. Split the dataset into training and testing sets
+7. Convert text into numerical features
+8. Train Machine Learning models
+9. Evaluate model performance
+10. Compare the models
+11. Save the trained model using Pickle
 
-The preprocessed text is converted into numerical features using:
+---
 
-**TF-IDF (Term Frequency-Inverse Document Frequency)**
+## 🤖 Machine Learning Models
 
-The TF-IDF vectorizer is fitted on the training data and then used to transform both training and testing data.
+Three Machine Learning algorithms were implemented and compared:
 
-## Machine Learning Models
+### 1. Logistic Regression
 
-The project trains and compares three classification algorithms:
+A linear classification algorithm used as one of the primary models for binary sentiment classification.
 
-1. Logistic Regression
-2. Bernoulli Naive Bayes
-3. Linear Support Vector Machine (SVM)
+### 2. Bernoulli Naive Bayes
 
-The models are evaluated using accuracy scores.
+A probabilistic classification algorithm suitable for binary/feature-based text classification.
 
-A classification report is also generated for the Logistic Regression model.
+### 3. Linear Support Vector Machine
 
-## Model Saving
+A linear SVM classifier used to identify the decision boundary between positive and negative sentiment classes.
 
-The trained Logistic Regression model is saved using Pickle as:
+---
+
+## 📈 Model Performance
+
+The models were evaluated using test data.
+
+| Model | Test Accuracy |
+|-------|--------------:|
+| Logistic Regression | **76.67%** |
+| Bernoulli Naive Bayes | **76.48%** |
+| Linear SVM | **76.97%** |
+
+### Best Performing Model
+
+Based on test accuracy, **Linear SVM achieved the highest accuracy of 76.97%** among the three evaluated models.
+
+Logistic Regression achieved a very close accuracy of **76.67%**.
+
+---
+
+## 📋 Logistic Regression Classification Report
+
+The Logistic Regression model achieved approximately **78% F1-score** across both sentiment classes.
+
+| Class | Precision | Recall | F1-Score |
+|------|----------:|-------:|---------:|
+| Negative (0) | 0.79 | 0.76 | 0.77 |
+| Positive (1) | 0.77 | 0.80 | 0.78 |
+
+### Overall Performance
+
+- **Accuracy:** ~78%
+- **Macro Average F1-score:** ~0.78
+- **Weighted Average F1-score:** ~0.78
+
+---
+
+## 💾 Model Saving
+
+The trained Machine Learning model is saved using Python's `pickle` module.
+
+This allows the trained model to be reused later without retraining it from scratch.
+
+The saved models are stored inside the `models/` directory.
+
+---
+
+## 📁 Project Structure
 
 ```text
-trained_model.sav
+Sentiment_Analysis_Python/
+│
+├── models/
+│   └── Saved Machine Learning Models
+│
+├── twitter_sentiment_analysis.ipynb
+├── requirements.txt
+└── README.md
