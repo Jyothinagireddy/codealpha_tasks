@@ -1,57 +1,73 @@
 # Twitter Sentiment Analysis
-
 ## Overview
 
-This project performs sentiment analysis on Twitter data using Python and Machine Learning. The objective is to classify text data into sentiment categories and understand the overall sentiment expressed in tweets.
+This project performs sentiment analysis on Twitter data using Natural Language Processing (NLP) and Machine Learning techniques.
+The project uses the Sentiment140 dataset and classifies tweets into positive and negative sentiments.
 
 ## Objective
 
-The main objectives of this project are:
+The main objective of this project is to build a machine learning model that can analyze the sentiment expressed in a tweet.
+The project covers:
 
-- Clean and preprocess Twitter text data.
-- Remove unnecessary characters and noise from tweets.
-- Convert text into numerical features.
-- Train a machine learning model for sentiment classification.
-- Evaluate the performance of the trained model.
-- Predict the sentiment of new text data.
+- Twitter text preprocessing
+- Stopword removal
+- Stemming
+- TF-IDF feature extraction
+- Machine learning model training
+- Model evaluation
+- Sentiment prediction for new tweets
+
+## Dataset
+
+The project uses the **Sentiment140 dataset**, which contains 1.6 million tweets.
+The target labels are converted into two sentiment classes:
+
+- `0` → Negative
+- `1` → Positive
 
 ## Technologies Used
 
 - Python
-- Pandas
 - NumPy
-- Matplotlib
-- Seaborn
+- Pandas
 - NLTK
 - Scikit-learn
+- Kaggle API
 - Jupyter Notebook
 
-## Project Workflow
+## NLP Preprocessing
 
-1. Import the required libraries.
-2. Load the Twitter sentiment dataset.
-3. Perform data exploration and preprocessing.
-4. Clean and normalize the text data.
-5. Convert text into numerical features.
-6. Split the dataset into training and testing sets.
-7. Train the machine learning model.
-8. Evaluate the model using suitable performance metrics.
-9. Perform sentiment prediction on text data.
+The tweet text is processed using the following steps:
 
-## Sentiment Analysis
+1. Remove non-alphabetic characters.
+2. Convert text to lowercase.
+3. Split text into individual words.
+4. Remove English stopwords.
+5. Apply Porter Stemming.
 
-The model analyzes the text and classifies tweets according to their sentiment.
+## Feature Extraction
 
-The project demonstrates the use of Natural Language Processing (NLP) and Machine Learning techniques for text classification.
+The preprocessed text is converted into numerical features using:
 
-## Project Structure
+**TF-IDF (Term Frequency-Inverse Document Frequency)**
+
+The TF-IDF vectorizer is fitted on the training data and then used to transform both training and testing data.
+
+## Machine Learning Models
+
+The project trains and compares three classification algorithms:
+
+1. Logistic Regression
+2. Bernoulli Naive Bayes
+3. Linear Support Vector Machine (SVM)
+
+The models are evaluated using accuracy scores.
+
+A classification report is also generated for the Logistic Regression model.
+
+## Model Saving
+
+The trained Logistic Regression model is saved using Pickle as:
 
 ```text
-Sentiment_Analysis_Python/
-│
-├── models/
-│   └── Saved model files
-│
-├── README.md
-├── requirements.txt
-└── twitter_sentiment_analysis.ipynb
+trained_model.sav
