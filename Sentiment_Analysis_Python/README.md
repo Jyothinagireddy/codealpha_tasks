@@ -23,26 +23,36 @@ Manually analyzing millions of tweets is difficult and time-consuming. This proj
 
 ## 📊 Dataset
 
-The dataset contains **1,600,000 labeled tweets**.
+The project uses the Twitter Sentiment Analysis Dataset containing **1,600,000 tweets**.
 
-The original target labels were converted into binary sentiment classes:
+Due to the large dataset size, the dataset is **not included in this GitHub repository**.
+
+The dataset can be obtained from Kaggle:
+
+**Dataset:** Sentiment140 – A Twitter Sentiment Analysis Dataset
+
+Download the dataset from Kaggle and place/upload it in the appropriate location before running the notebook.
+
+## 📊 Dataset
+
+This project uses the **Sentiment140 Twitter Sentiment Analysis Dataset**, containing **1,600,000 tweets**.
+
+Due to the large dataset size, the dataset is not included in this GitHub repository.
+
+The dataset is obtained directly from Kaggle using the **Kaggle API** in the Google Colab notebook.
+
+### Dataset Classes
 
 - `0` → Negative
 - `4` → Positive
 
-The positive label `4` was mapped to `1` for binary classification.
+The original label `4` is converted to `1` during preprocessing to create a binary classification problem.
 
-### Class Distribution
-
-| Sentiment | Number of Tweets |
-|-----------|------------------:|
+| Sentiment | Count |
+|-----------|------:|
 | Negative (0) | 800,000 |
 | Positive (1) | 800,000 |
 | **Total** | **1,600,000** |
-
-The dataset is therefore balanced between the two sentiment classes.
-
----
 
 ## 🛠️ Technologies Used
 
@@ -55,7 +65,24 @@ The dataset is therefore balanced between the two sentiment classes.
 - Pickle
 
 ---
+ 
+> ## 💻 Google Colab & Kaggle API
 
+This project was developed and tested using **Google Colab**.
+
+The dataset is downloaded using the Kaggle API rather than being stored in this repository.
+
+### Steps to Run
+
+1. Open the notebook in Google Colab.
+2. Configure Kaggle API credentials in the Colab environment.
+3. Run the dataset download cell.
+4. The notebook downloads the dataset from Kaggle.
+5. Run the remaining cells sequentially to perform preprocessing, training, and evaluation.
+
+> **Note:** The dataset is not included in this repository because of its large file size. A Kaggle account and API credentials may be required to download the dataset.
+
+ 
 ## 🔄 Project Workflow
 
 The project follows these major steps:
